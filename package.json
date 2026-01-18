@@ -3,5 +3,8 @@
     "description": "An app using web workers in its client in a client-server architecture",
     "packages": [
         "client/*"
-    ]
+    ],
+    "scripts": {
+        "dev:client": "cd packages/client && bun run dev"
+    }
 }
