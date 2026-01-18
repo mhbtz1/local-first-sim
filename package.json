@@ -1,0 +1,7 @@
+{
+    "name": "web-workers-example",
+    "description": "An app using web workers in its client in a client-server architecture",
+    "packages": [
+        "client/*"
+    ]
+}
