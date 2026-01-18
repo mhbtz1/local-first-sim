@@ -44,7 +44,12 @@ export const Dispatcher = () => {
     })
 
     function onSubmit(data: z.infer<typeof FormSchema>) {
-
+        const event = new CustomEvent("worker", {
+            detail: {
+                value: data.value
+            }
+        })
+        window.postMessage(event)
     }
 
 
@@ -64,14 +69,13 @@ export const Dispatcher = () => {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-rhf-demo-title">
+                  <FieldLabel htmlFor="value">
                     Bug Title
                   </FieldLabel>
                   <Input
                     {...field}
                     id="value"
                     aria-invalid={fieldState.invalid}
-                    placeholder="Login button not working on mobile"
                     autoComplete="off"
                   />
                   {fieldState.invalid && (
